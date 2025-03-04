@@ -1,5 +1,5 @@
 CC=gcc -g #-Wall 
-Clang=clang-6.0 -emit-llvm -c -g -O0 -Xclang -disable-O0-optnone 
+Clang=/opt/clang-6.0/bin/clang-6.0 -emit-llvm -c -g -O0 -Xclang -disable-O0-optnone 
 PATH1=../../stub_model/source-new
 PATH2=../../stub_model/header-new
 PATH3=../../CA_variants

@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "simple_tcp.c": "cpp",
+        "simple_tcp_ipv4.c": "cpp",
+        "share.h": "c",
+        "tcp_vegas.h": "c",
+        "simple_inet_connection_sock.h": "c",
+        "simple_skbuff.h": "c",
+        "simple_inet_diag.h": "c",
+        "simple_compiler.h": "c",
+        "stddef.h": "c",
+        "int-ll64.h": "c"
+    }
+}

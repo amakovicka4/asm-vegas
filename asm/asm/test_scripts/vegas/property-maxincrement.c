@@ -9,7 +9,7 @@
 #ifndef script_property
 #define script_property
 #include "../../stub_model/header-new/share.h"
-#include "../asm/asm/CA_variants/tcp_vegas.c";
+#include "/home/asm/asm/CA_variants/tcp_vegas.c"
 
 extern struct tcp_congestion_ops tcp_vegas;
 
@@ -74,18 +74,14 @@ int main(int argc, char* argv[]){
 
 ///////// Parameter initilization ///////////////////////
 
-    // u32 MIN_SSTRESH;
-    // u32 MAX_SSTRESH;
+    u32 MIN_SSTHRESH;
+    u32 MAX_SSTHRESH;
 
-    // u32 MIN_CWND_CNT;
-    // u32 MAX_CWND_CNT;       
+    u32 MIN_CWND_CNT;
+    u32 MAX_CWND_CNT;       
 
-    // u32 BASE_RTT;
-    // u32 CURRENT_RTT;
-    // u32 diff;
-
-    // u32 MIN_CWND;
-    // u32 MAX_CWND;
+    u32 MIN_CWND;
+    u32 MAX_CWND;
 
     // TODO - Initialize min/max values from command line
 
@@ -112,14 +108,19 @@ int main(int argc, char* argv[]){
 	tcp_ca_event(sk, CA_EVENT_TX_START);
 
 ///////// Symbolic Variable Initilization ///////////////////////
-    // u32 sym_ssthresh;       // tp
-    // u32 sym_max_cwnd;       // tp
-    // u32 sym_base_rtt;        // ca
-    // u32 sym_curr_rtt;       // ca 
+    u32 sym_cwnd;    
+    u32 sym_snd_ssthresh;      
+    u32 sym_cwnd_cnt;          
+
+	__VERIFIER_nondet_u32(&sym_cwnd, "cwnd", MIN_CWND, MAX_CWND);
+	__VERIFIER_nondet_u32(&sym_snd_ssthresh, "ssthresh", MIN_SSTHRESH, MAX_SSTHRESH);
+	__VERIFIER_nondet_u32(&sym_cwnd_cnt, "cwnd_cnt", 0, sym_cwnd-1); 
+
 
     tp->snd_cwnd = 10;
     tp->snd_ssthresh = 1;
     tp->snd_cwnd_cnt = 0;
+
 
     
 

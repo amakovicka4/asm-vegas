@@ -682,4 +682,20 @@ static inline u32 tcp_receive_window(const struct tcp_sock *tp)
 		win = 0;
 	return (u32) win;
 }//Lisong added
+
+// Added by Aiden for TCP Vegas file
+// From include/net/tcp.h
+static inline u32 tcp_snd_cwnd(const struct tcp_sock *tp)
+{
+	return tp->snd_cwnd;
+}
+
+// Added by Aiden for TCP Vegas file
+// From include/net/tcp.h
+static inline void tcp_snd_cwnd_set(struct tcp_sock *tp, u32 val)
+{
+	WARN_ON_ONCE((int)val <= 0);
+	tp->snd_cwnd = val;
+}
+
 #endif

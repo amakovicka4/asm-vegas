@@ -38,14 +38,14 @@
 
 static int alpha = 2;
 static int beta  = 4;
-static int gamma = 1;
+static int gam = 1;
 
 module_param(alpha, int, 0644);
 MODULE_PARM_DESC(alpha, "lower bound of packets in network");
 module_param(beta, int, 0644);
 MODULE_PARM_DESC(beta, "upper bound of packets in network");
-module_param(gamma, int, 0644);
-MODULE_PARM_DESC(gamma, "limit on increase (scale by 2)");
+module_param(gam, int, 0644);
+MODULE_PARM_DESC(gam, "limit on increase (scale by 2)");
 
 /* There are several situations when we must "re-start" Vegas:
  *
@@ -221,7 +221,7 @@ static void tcp_vegas_cong_avoid(struct sock *sk, u32 ack, u32 acked)
 			 */
 			diff = tcp_snd_cwnd(tp) * (rtt-vegas->baseRTT) / vegas->baseRTT;
 
-			if (diff > gamma && tcp_in_slow_start(tp)) {
+			if (diff > gam && tcp_in_slow_start(tp)) {
 				/* Going too fast. Time to slow down
 				 * and switch to congestion avoidance.
 				 */

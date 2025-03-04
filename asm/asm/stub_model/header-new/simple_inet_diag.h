@@ -24,31 +24,31 @@ enum {
 /* INET_DIAG_VEGASINFO */
 
 struct tcpvegas_info {
-	__u32	tcpv_enabled;
-	__u32	tcpv_rttcnt;
-	__u32	tcpv_rtt;
-	__u32	tcpv_minrtt;
+	u32	tcpv_enabled;
+	u32	tcpv_rttcnt;
+	u32	tcpv_rtt;
+	u32	tcpv_minrtt;
 };
 
 /* INET_DIAG_DCTCPINFO */
 
 struct tcp_dctcp_info {
-	__u16	dctcp_enabled;
-	__u16	dctcp_ce_state;
-	__u32	dctcp_alpha;
-	__u32	dctcp_ab_ecn;
-	__u32	dctcp_ab_tot;
+	u16	dctcp_enabled;
+	u16	dctcp_ce_state;
+	u32	dctcp_alpha;
+	u32	dctcp_ab_ecn;
+	u32	dctcp_ab_tot;
 };
 
 /* INET_DIAG_BBRINFO */
 
 struct tcp_bbr_info {
 	/* u64 bw: max-filtered BW (app throughput) estimate in Byte per sec: */
-	__u32	bbr_bw_lo;		/* lower 32 bits of bw */
-	__u32	bbr_bw_hi;		/* upper 32 bits of bw */
-	__u32	bbr_min_rtt;		/* min-filtered RTT in uSec */
-	__u32	bbr_pacing_gain;	/* pacing gain shifted left 8 bits */
-	__u32	bbr_cwnd_gain;		/* cwnd gain shifted left 8 bits */
+	u32	bbr_bw_lo;		/* lower 32 bits of bw */
+	u32	bbr_bw_hi;		/* upper 32 bits of bw */
+	u32	bbr_min_rtt;		/* min-filtered RTT in uSec */
+	u32	bbr_pacing_gain;	/* pacing gain shifted left 8 bits */
+	u32	bbr_cwnd_gain;		/* cwnd gain shifted left 8 bits */
 };
 
 union tcp_cc_info {

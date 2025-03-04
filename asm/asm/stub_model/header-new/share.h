@@ -15,7 +15,8 @@
 // 		then need to define constants like HZ_TO_USEC_NUM, ...
 // 		and CUBIC calls usecs_to_jiffies(
 #define BITS_PER_LONG  64
-#include "types.h"
+//#include "types.h" TODO: Remove types.h if it serves no value
+#include "int-ll64.h"
 #include <stddef.h>
 #include <stdbool.h>
 #include <string.h>
@@ -51,6 +52,16 @@ typedef int 				s32;
 // from include/linux/types.h
 typedef unsigned int __bitwise gfp_t;
 // <M>
+
+typedef __u16 __bitwise __le16;
+typedef __u16 __bitwise __be16;
+typedef __u32 __bitwise __le32;
+typedef __u32 __bitwise __be32;
+typedef __u64 __bitwise __le64;
+typedef __u64 __bitwise __be64;
+
+typedef __u16 __bitwise __sum16;
+typedef __u32 __bitwise __wsum;
 
 #ifdef __GNUC__
 typedef long long s64;
@@ -202,9 +213,10 @@ u64 div64_u64(u64 dividend, u64 divisor)
 
 
 
-#include "../asm/asm/stub_model/source-new/simple_tcp.c";
-#include "../asm/asm/stub_model/source-new/simple_tcp_ipv4.c";
-#include "../asm/asm/stub_model/source-new/simple_tcp_cong.c";
+//#include "../asm/asm/stub_model/source-new/simple_tcp.c"
+#include "/home/asm/asm/stub_model/source-new/simple_tcp.c"
+#include "/home/asm/asm/stub_model/source-new/simple_tcp_ipv4.c"
+#include "/home/asm/asm/stub_model/source-new/simple_tcp_cong.c"
 
 // Files for TCP Vegas
 #include "tcp_vegas.h"
